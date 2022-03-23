@@ -10,7 +10,7 @@ cmake . -DUNICORN_ARCH=mips -DCMAKE_BUILD_TYPE=Release
 make -j8
 
 # export LIBUNICORN_PATH for Github CI
-# TODO: is this actually needed?
-if [[ ! -z "$GITHUB_ENV" ]]; then
-    echo "LIBUNICORN_PATH=$(pwd)/unicorn2/" >> $GITHUB_ENV
-fi
+# # TODO: is this actually needed?
+# if [[ ! -z "$GITHUB_ENV" ]]; then
+#     echo "LIBUNICORN_PATH=$(pwd)/unicorn2/" >> $GITHUB_ENV
+# fi
