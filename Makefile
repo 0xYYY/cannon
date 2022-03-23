@@ -1,5 +1,4 @@
 build: unicorn minigeth_mips minigeth_default_arch mipsevm contracts
-	yarn
 
 unicorn:
 	./build_unicorn.sh

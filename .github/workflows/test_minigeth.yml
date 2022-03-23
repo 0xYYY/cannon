@@ -9,19 +9,11 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
-    - name: Install Go
+    - name: Install Toolchain
       run: |
         sudo apt-get update
         sudo apt-get -y --no-install-recommends install golang-1.16
-    - name: Build minigeth
-      run: |
-        (cd minigeth/ && go build)
-        mkdir -p /tmp/cannon
-    - name: Test block 13284491 (0 tx)
-      run: minigeth/go-ethereum 13284491
-    - name: Test block 13284469 (few tx)
-      run: minigeth/go-ethereum 13284469
-    - name: Test block 13284053 (deletion)
-      run: minigeth/go-ethereum 13284053
-    - name: Test block 13303075 (uncles)
-      run: minigeth/go-ethereum 13303075
+    - name: Build
+      run: make minigeth_default_arch
+    - name: Test
+      run: make test_minigeth

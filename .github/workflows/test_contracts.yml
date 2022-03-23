@@ -9,13 +9,12 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
-    - name: Install Node
+    - name: Install Toolchain
       run: |
         sudo apt-get update
         sudo apt-get -y --no-install-recommends install nodejs npm
-    - name: Install yarn
-      run: |
         npm install --global yarn
-        yarn install
-    - name: Hardhat Test
-      run: npx hardhat test
+    - name: Build
+      run: make contracts
+    - name: Test
+      run: make test_contracts
